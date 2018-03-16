@@ -14,24 +14,27 @@
         android:paddingTop="50dp"
         android:text="Welcome to TRIVIA"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textSize="35sp" />
 
     <TextView
         android:id="@+id/playButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:fontFamily="monospace"
         android:text="Play the game!"
         android:textAlignment="center"
-        android:textSize="24sp" />
+        android:textSize="30sp" />
 
     <TextView
         android:id="@+id/seeHighScoreButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
+        android:fontFamily="sans-serif-condensed"
         android:paddingBottom="20dp"
         android:text="See the highscores!"
-        android:textAlignment="center" />
+        android:textAlignment="center"
+        android:textSize="18sp" />
 
 </android.support.design.widget.CoordinatorLayout>

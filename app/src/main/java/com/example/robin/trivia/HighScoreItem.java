@@ -6,14 +6,20 @@ package com.example.robin.trivia;
 
 public class HighScoreItem {
 
+    // variables of class
     int score;
     String name;
 
+    // constructors of class
     public HighScoreItem(String name, int score) {
         this.name = name;
         this.score = score;
     }
 
+    public HighScoreItem() {
+    }
+
+    // getters and setters of class
     public int getScore() {
         return score;
     }

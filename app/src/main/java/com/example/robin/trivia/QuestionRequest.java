@@ -23,7 +23,7 @@ public class QuestionRequest implements Response.Listener<JSONArray>, Response.E
 
     // define variables of the class
     Context contextQuestion;
-    String link = "http://jservice.io/api/random";
+    String link = "http://jservice.io/api/random?count=4";
     Callback activityCallback;
 
 
@@ -47,19 +47,18 @@ public class QuestionRequest implements Response.Listener<JSONArray>, Response.E
             JSONArray questions = response;
             System.out.println(questions);
             ArrayList<Question> questionsList = new ArrayList<>();
-            JSONObject question = questions.getJSONObject(0);
 
-            //String title = question.getString("title");
-            //Log.e("try", title);
-            String asked = question.getString("question");
-            String answer = question.getString("answer");
-            JSONObject category = question.getJSONObject("category");
-            String categoryTitle = category.getString("title");
-
-            questionsList.add(new Question(asked, answer, categoryTitle, false));
+            // create a list with downloaded questions
+            for (int i = 0; i < 4; i++) {
+                JSONObject question = questions.getJSONObject(i);
+                String asked = question.getString("question");
+                String answer = question.getString("answer");
+                JSONObject category = question.getJSONObject("category");
+                String categoryTitle = category.getString("title");
+                questionsList.add(new Question(asked, answer, categoryTitle, false));
+            }
 
             activityCallback.gotQuestion(questionsList);
-            Log.e("test", question.toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -77,7 +76,6 @@ public class QuestionRequest implements Response.Listener<JSONArray>, Response.E
     // define callback interface
     public interface Callback {
         void gotQuestion(ArrayList<Question> question);
-
         void gotQuestionError(String message);
     }
 }

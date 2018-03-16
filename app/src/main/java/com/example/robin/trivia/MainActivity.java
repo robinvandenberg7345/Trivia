@@ -14,33 +14,32 @@ public class MainActivity extends AppCompatActivity {
         TextView playButton;
         TextView highScoreButton;
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // set listeners on play and highscore buttons
         playButton = findViewById(R.id.playButton);
         playButton.setOnClickListener(new BeginGameButtonItemClickListener());
-
         highScoreButton = findViewById(R.id.seeHighScoreButton);
         highScoreButton.setOnClickListener(new HighScoreButtonItemClickListener());
     }
 
-    // define the listener
+    // define the listener for highscore butten
     private class HighScoreButtonItemClickListener implements TextView.OnClickListener {
-
         @Override
         public void onClick(View v) {
+
             // pass on category to menu activity to display items
             Intent intent = new Intent(MainActivity.this, HighScoreView.class);
             startActivity(intent);
         }
     }
 
-    // define the listener
+    // define the listener for begin game button
     private class BeginGameButtonItemClickListener implements TextView.OnClickListener {
-
         @Override
         public void onClick(View v) {
+
             // pass on category to menu activity to display items
             Intent intent = new Intent(MainActivity.this, QuestionDisplay.class);
             startActivity(intent);

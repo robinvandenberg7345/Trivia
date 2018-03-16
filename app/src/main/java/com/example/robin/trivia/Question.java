@@ -22,7 +22,7 @@ public class Question implements Serializable {
         this.correct = correct;
     }
 
-
+    // getters and setters of class
     public String getQuestion() {
         return question;
     }
